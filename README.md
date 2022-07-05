@@ -207,12 +207,8 @@ Use `Speech.getInstance().setLocale(locale)` and `Speech.getInstance().setVoice(
 
 > When you set the locale, the voice is automatically changed to the default voice of that language. If you want to set a particular voice, remember to re-set it every time you change the locale, too.
 
-## Credits
-Thanks to @zagum for the original implementation of the [speech recognition view](https://github.com/zagum/SpeechRecognitionView).
 
 ## License
-
-    Copyright (C) 2019 Aleksandar Gotev
 
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
@@ -225,6 +221,3 @@ Thanks to @zagum for the original implementation of the [speech recognition view
     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
     See the License for the specific language governing permissions and
     limitations under the License.
-
-## Contributors
-Thanks to [Kristiyan Petrov](https://github.com/kristiyanP) for code review, bug fixes and library improvement ideas.
