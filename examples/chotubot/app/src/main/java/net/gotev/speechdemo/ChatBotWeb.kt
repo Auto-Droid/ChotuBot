@@ -1,5 +1,8 @@
 package net.gotev.speechdemo
 
+import android.content.Context
+import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import android.util.Log
 import android.view.View
@@ -14,7 +17,7 @@ class ChatBotWeb : AppCompatActivity() {
         setContentView(R.layout.activity_chat_bot_web)
 
         val webview = findViewById<WebView>(R.id.webview)
-        webview.setWebViewClient(MyBrowser())
+        webview.setWebViewClient(MyBrowser(this))
         webview.getSettings().setLoadsImagesAutomatically(true);
         webview.getSettings().setJavaScriptEnabled(true);
         webview.setScrollBarStyle(View.SCROLLBARS_INSIDE_OVERLAY);
@@ -37,10 +40,16 @@ class ChatBotWeb : AppCompatActivity() {
         setDesktopMode(webview,true)
     }
 
-    private class MyBrowser : WebViewClient() {
+    private class MyBrowser(val context: Context) : WebViewClient() {
         override fun shouldOverrideUrlLoading(view: WebView, url: String): Boolean {
             Log.e("url","$url")
-            view.loadUrl(url)
+            if(url.equals("http://alecta.co.in/page.html", false)) {
+                view.loadUrl(url)
+            } else {
+                val browserIntent = Intent(Intent.ACTION_VIEW, Uri.parse(url))
+                context.startActivity(browserIntent)
+            }
+
             return true
         }
     }
