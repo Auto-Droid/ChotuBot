@@ -2,6 +2,7 @@ package net.gotev.speechdemo;
 
 import android.Manifest;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.os.Build;
 import android.os.Bundle;
@@ -64,6 +65,7 @@ public class MainActivity extends AppCompatActivity implements SpeechDelegate {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        startService(new Intent(MainActivity.this, ChatHeadService.class));
 
         Speech.init(this, getPackageName(), mTttsInitListener);
 
